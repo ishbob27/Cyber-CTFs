@@ -1,1 +1,69 @@
+Crack the hash 
+
+Part 1: 
+
+1.	48bb6e862e54f2a795ffc4e541caed4d 
+  a.	The first step, find out what kind of hash this is 
+  b.	Use hashid-m 	   
+  c.	Use hash-identifier just to be sure   
+  d.	Both say it could be MD5  
+    i.	Hint: hashid -m tells you the hashcat extension 
+  e.	Command: hashcat -m 0 hash1.1 /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt  –show   
+      ii.	Correct Answer = easy 
+
+2.	CBFDAC6008F9CAB4083784CBD1874F76618D2A97 
+  a.	Same process as before, use both hashid-m and hash-identifier 
+    i.	Hint: hash-identifier doesn’t use files like hashid -m 
+  b.	We find out the hash is SHA-1 
+  c.	Command: hashcat -m 100 hash1.2 /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt  --show  	 
+    i.	Correct Answer: password123  
+
+3.	1C8BFE8F801D79745C4631D09FFF36C82AA37FC4CCE4FC946683D7B336B63032 
+  a.	Hashid-m and hash-identifier both indicate that this is a SHA-256 hash 
+  b.	Command used: hashcat -m 1400 hash1.3 /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt  --show   	  
+    i.	Correct Answer: letmein 
+
+4.	$2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom 
+  a.	Hash-identifier cam up with nothing and hashid -m said it could either be blowfish(openbsd) or bcrypt, both have the same extension 
+  b.	The initial command I ran used the entire rockyou wordlist, it said it was going to take 12 days to run, I was not doing that 
+  c.	If you look at the hint it says that the cracked hash is 4 characters long. In seclists there is a wordlist called 1-4_all_letters_a-z.txt, running this takes significantly less time 
+  d.	However, it takes like 10 hours to do. Enter the grep -E '^[a-zA-Z]{4}$' /usr/shares/seclists/Fuzzing/1-4_all_letters_a-z.txt > filteredwords.txt 
+  e.	This limits it to just 4 letters 
+  f.	Now we run the command hashcat -m 3200 hash1.4 filteredwords.txt 
+	   i.	Correct Answer: bleh 
+
+5.	279412f945939ba78ce0758d3fd83daa 
+  a.	This is an MD4 hash 	  
+    i.	The hint said it was an MD4 hash, however the rockyou list was exhausted    
+    i.	Command: hashcat -m 900 hash1.5 /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt  
+    i.	I then ran the hash through a website called crackstation, it was able to crack it 
+  b.	Correct answer: Eternity22  
+
+
+Part 2: 
+1.	F09EDCB1FCEFC6DFB23DC3505A882655FF77375ED8AA2D1C13F640FCCC2D0C85 
+a.	Hash is SHA-256 
+b.	Command used: hashcat -m 1400 hash2.1 /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt 
+i.	  
+ii.	Correct Answer: paule 
+2.	1DFECA0C002AE40B8619ECF94819CC1B 
+a.	I was unsure due to the inconsistent results from both hashid -m and hash-identifier  
+i.	The hint says that it is an ntlm hash 
+b.	Command used: hashcat -m 1000 hash2.2  /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt  
+i.	  
+ii.	Correct Answer: n63umy8lkf4i 
+3.	$6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02. 
+a.	Hashid -m says it is a SHA-512 Crypt, however I wanted to be sure so I went to the hashcat wiki for example hashes.  
+b.	Command used: hashcat -m 1800 hash2.3 /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt  
+i.	  
+ii.	 
+iii.	Correct Answer: waka99 
+4.	e5d8870e5bdd26602cab8dbe07a942c8669e56d6       Salt: tryhackme 
+a.	Here the salt isn’t included in the hash already as it was in the previous problem 
+b.	This is the format to use when placing in txt file: e5d8870e5bdd26602cab8dbe07a942c8669e56d6:tryhackme  
+c.	Here I had to use the wiki again to find out the hash format again 
+i.	HMAC-SHA1 (key = $salt) This is the one I found to be the closest 
+d.	Command used: hashcat -m 160 hash2.4 /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt  
+i.	  
+ii.	Correct Answer: 481616481616
 
