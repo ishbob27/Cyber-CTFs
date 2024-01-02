@@ -39,31 +39,31 @@ Part 1:
     i.	I then ran the hash through a website called crackstation, it was able to crack it 
   b.	Correct answer: Eternity22  
 
-
 Part 2: 
 1.	F09EDCB1FCEFC6DFB23DC3505A882655FF77375ED8AA2D1C13F640FCCC2D0C85 
-a.	Hash is SHA-256 
-b.	Command used: hashcat -m 1400 hash2.1 /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt 
-i.	  
-ii.	Correct Answer: paule 
+	a.	Hash is SHA-256 
+	b.	Command used: hashcat -m 1400 hash2.1 /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt 	  
+		i.	Correct Answer: paule 
+
 2.	1DFECA0C002AE40B8619ECF94819CC1B 
-a.	I was unsure due to the inconsistent results from both hashid -m and hash-identifier  
-i.	The hint says that it is an ntlm hash 
-b.	Command used: hashcat -m 1000 hash2.2  /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt  
-i.	  
-ii.	Correct Answer: n63umy8lkf4i 
+	a.	I was unsure due to the inconsistent results from both hashid -m and hash-identifier  
+		i.	The hint says that it is an ntlm hash 
+	b.	Command used: hashcat -m 1000 hash2.2  /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt  	  
+		i.	Correct Answer: n63umy8lkf4i 
+
 3.	$6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02. 
-a.	Hashid -m says it is a SHA-512 Crypt, however I wanted to be sure so I went to the hashcat wiki for example hashes.  
-b.	Command used: hashcat -m 1800 hash2.3 /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt  
-i.	  
-ii.	 
-iii.	Correct Answer: waka99 
+	a.	Hashid -m says it is a SHA-512 Crypt, however I wanted to be sure so I went to the hashcat wiki for example hashes.  
+	b.	Command used: hashcat -m 1800 hash2.3 /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt  	  	  
+		i.	Correct Answer: waka99 
+
 4.	e5d8870e5bdd26602cab8dbe07a942c8669e56d6       Salt: tryhackme 
-a.	Here the salt isn’t included in the hash already as it was in the previous problem 
-b.	This is the format to use when placing in txt file: e5d8870e5bdd26602cab8dbe07a942c8669e56d6:tryhackme  
-c.	Here I had to use the wiki again to find out the hash format again 
-i.	HMAC-SHA1 (key = $salt) This is the one I found to be the closest 
-d.	Command used: hashcat -m 160 hash2.4 /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt  
-i.	  
-ii.	Correct Answer: 481616481616
+	a.	Here the salt isn’t included in the hash already as it was in the previous problem 
+	b.	This is the format to use when placing in txt file: e5d8870e5bdd26602cab8dbe07a942c8669e56d6:tryhackme  
+	c.	Here I had to use the wiki again to find out the hash format again 
+		i.	HMAC-SHA1 (key = $salt) This is the one I found to be the closest 
+	d.	Command used: hashcat -m 160 hash2.4 /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt  	  
+		i.	Correct Answer: 481616481616
+
+
+
 
