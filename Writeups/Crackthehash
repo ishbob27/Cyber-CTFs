@@ -1,3 +1,15 @@
+
+# Crack the Hash. 🕵️‍♂️💻
+
+  
+Uncover the secrets of various hash algorithms, from MD5 to SHA-256, and learn the art of cracking them using the Hashcat tool.
+
+
+
+
+
+
+
 ## Part 1:
 
 #### 1.48bb6e862e54f2a795ffc4e541caed4d 
@@ -25,3 +37,6 @@ Start the server
 
 ```bash
   npm run start
+```
+
+
