@@ -5,11 +5,8 @@ Uncover the secrets of various hash algorithms, from MD5 to SHA-256, and learn t
 Tools Used: Hashcat, hashid, hash-identifier  
 #### Links: 
 - https://www.stationx.net/how-to-use-hashcat/
-- https://hashcat.net/wiki/doku.php?id=example_hashes 
-
-
-
-
+- https://hashcat.net/wiki/doku.php?id=example_hashes
+- https://github.com/danielmiessler/SecLists
 
 
 ## Part 1:
@@ -65,8 +62,7 @@ hashcat -m 1400 hash1.3 /usr/share/seclists/Passwords/Leaked-Databases/rockyou.t
 - Hash-identifier cam up with nothing and hashid -m said it could either be blowfish(openbsd) or bcrypt, both have the same extension 
 
 #### hint: it says that the cracked hash is 4 characters long 
-- danielmiessler’s “SecLists”: (You can find on github @ https://github.com/danielmiessler/SecLists ) 
-- there is a wordlist called 1–4_all_letters_a-z.txt, running this takes significantly less time
+- danielmiessler’s “SecLists”: there is a wordlist called 1–4_all_letters_a-z.txt, running this takes significantly less time
 - Use the command: 
 
 ```bash
