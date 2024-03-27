@@ -2,7 +2,10 @@
 
   
 Uncover the secrets of various hash algorithms, from MD5 to SHA-256, and learn the art of cracking them using the Hashcat tool.
-
+Tools Used: Hashcat, hashid, hash-identifier  
+#### Links: 
+- https://www.stationx.net/how-to-use-hashcat/
+- https://hashcat.net/wiki/doku.php?id=example_hashes 
 
 
 
